@@ -1,19 +1,19 @@
 # Node.js (Frontend)
-frontend/node_modules/
-frontend/.env
-frontend/dist/
-frontend/build/
-frontend/.DS_Store
+*/frontend/node_modules/
+*/frontend/.env
+*/frontend/dist/
+*/frontend/build/
+*/frontend/.DS_Store
 
 # Babel and Webpack files
-frontend/.babelrc
-frontend/webpack.config.js
+*/frontend/.babelrc
+*/frontend/webpack.config.js
 
 # Python (Backend)
-backend/venv/
-backend/__pycache__/
-backend/*.pyc
-backend/.env
+*/backend/venv/
+*/backend/__pycache__/
+*/backend/*.pyc
+*/backend/.env
 
 # Byte-compiled / optimized / DLL files
 *.py[cod]
