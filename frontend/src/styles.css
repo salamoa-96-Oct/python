@@ -1,0 +1,26 @@
+/* project/frontend/src/styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  background-color: #333;
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
