@@ -1,14 +1,14 @@
 from pydantic import BaseModel, EmailStr
 
 class UserBase(BaseModel):
-    name: str
     email: EmailStr
+    full_name: str | None = None
 
 class UserCreate(UserBase):
-    pass
+    password: str
 
 class UserRead(UserBase):
     id: int
 
     class Config:
-        orm_mode = True
+        orm_mode = True  # FastAPI의 응답 모델과 호환을 위해 설정

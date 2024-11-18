@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pydantic==2.0.3
+pydantic-settings
+mysql-connector-python
+passlib[bcrypt]

@@ -1,21 +1,25 @@
 import mysql.connector
-from contextlib import contextmanager
+from mysql.connector import pooling
 from app.core.config import settings
 
-# 데이터베이스 설정
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "root",
-    "database": "notidashboard"
+dbconfig = {
+    "host": settings.DB_HOST,
+    "user": settings.DB_USER,
+    "password": settings.DB_PASSWORD,
+    "database": settings.DB_NAME,
+    "port": settings.DB_PORT,
 }
 
-@contextmanager
+# 커넥션 풀 생성
+connection_pool = pooling.MySQLConnectionPool(pool_name="notidashboard_pool_name",
+                                              pool_size=5,
+                                              **dbconfig)
+
 def get_db():
-    connection = mysql.connector.connect(**DB_CONFIG)
-    cursor = connection.cursor(dictionary=True)  # 결과를 딕셔너리로 반환
+    conn = connection_pool.get_connection()
+    cursor = conn.cursor(dictionary=True)
     try:
-        yield cursor
+        yield conn, cursor
     finally:
         cursor.close()
-        connection.close()
+        conn.close()
